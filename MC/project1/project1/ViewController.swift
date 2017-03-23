@@ -12,7 +12,6 @@ class ViewController: UIViewController {
     
     //Secondscreen
     @IBOutlet weak var secondscreen: UIView!
-    //Constrain
     
     // VARIABLES
     var num1 : Int = 0
@@ -88,12 +87,6 @@ class ViewController: UIViewController {
     }
     
     
-    @IBOutlet weak var Star1: UIImageView!
-    @IBOutlet weak var Star2: UIImageView!
-    @IBOutlet weak var Star3: UIImageView!
-    @IBOutlet weak var thumb: UIImageView!
-
-    
     // Reset BUTTON
     @IBAction func reset(_ sender: UIButton) {
         randomnumbergenerator()
@@ -127,26 +120,10 @@ class ViewController: UIViewController {
         if finalanswer == ans {
             secondscreen.isHidden = false
             continuous = continuous + 1
-            starsHanging()
         }
         else {
             
         }
     }
 
-    // Flashing Stars
-    func starsHanging(){
-        UIView.animate(withDuration: 0.5, delay: 0.4, options: [.repeat, .autoreverse],
-                       animations: {
-                        self.Star1.alpha = 0.0
-                        self.Star2.alpha = 0.2
-                        self.Star3.alpha = 0.0
-        },
-                       completion: nil
-        )
-
-                       
-    }
-    
-    
 }
