@@ -22,15 +22,16 @@ class Draggingimage: UIImageView {
         let dx = currentLocation!.x - applelocation!.x
         let dy = currentLocation!.y - applelocation!.y
         
-        self.center = CGPoint(x :self.center.x+dx, y : self.center.y+dy)
+        var newcenter = CGPoint(x :self.center.x+dx, y : self.center.y+dy)
         
         let halfx = self.bounds.midX
-        self.center.x = min(halfx, self.center.x)
-        self.center.x = max((self.superview?.bounds.size.width)! - halfx,self.center.x)
+        newcenter.x = max(halfx, newcenter.x)
+        newcenter.x = min((self.superview?.bounds.size.width)! - halfx,newcenter.x)
         
         let halfy = self.bounds.midY
-        self.center.y = min(halfy, self.center.y)
-        self.center.y = max((self.superview?.bounds.size.height)! - halfy,self.center.y)
-        self.center = self.center
+        newcenter.y = max(halfy + 200, newcenter.y)
+        newcenter.y = min((self.superview?.bounds.size.height)! - halfy,newcenter.y)
+        
+        self.center = newcenter
     }
 }
